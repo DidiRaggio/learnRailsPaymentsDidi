@@ -13,7 +13,7 @@ end
 gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record
 # sqlite3 for develpment and testing
-gem 'sqlite3', group: [:develpment, :test]
+gem 'sqlite3', group: [:development, :test]
 
 # postgres for  production on heroku
 gem 'pg', group: :production
@@ -23,6 +23,10 @@ gem 'bootstrap-sass'
 
 #12 factor for heroku
 gem 'rails_12factor', group: :production
+
+# add stripe for processing payments
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
