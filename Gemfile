@@ -12,7 +12,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record
-# sqlite3 for develpment and testing
+# sqlite3 for devlopment and test database
 gem 'sqlite3', group: [:development, :test]
 
 # postgres for  production on heroku
