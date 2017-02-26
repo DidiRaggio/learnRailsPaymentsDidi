@@ -30,6 +30,13 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 #add letteropener for development
 gem 'letter_opener', group: :development
 
+#add active admin CMS
+gem 'activeadmin', github: 'activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+
+#devise for user authentication
+gem 'devise'
+
 gem 'dotenv-rails', groups: [:development, :test]
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
