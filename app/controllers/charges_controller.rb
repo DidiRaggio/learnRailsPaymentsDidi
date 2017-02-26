@@ -10,22 +10,24 @@ class ChargesController < ApplicationController
 
 	  customer = Stripe::Customer.create(
 	    :email => params[:stripeEmail],
-	    :source  => params[:stripeToken]
+	    :source  => params[:stripeToken],
+	    :plan => "CAT"
 	  )
 
-	  charge = Stripe::Charge.create(
-	    :customer    => customer.id,
-	    :amount      => product.price_in_cents,
-	    :description => 'Rails Stripe customer',
-	    :currency    => 'usd'
-	  )
+	  #NOT USING ONE OFF PURCHASES
+	  # charge = Stripe::Charge.create(
+	  #   :customer    => customer.id,
+	  #   :amount      => product.price_in_cents,
+	  #   :description => 'Rails Stripe customer',
+	  #   :currency    => 'usd'
+	  # )
 
 	  purchase = Purchase.create(
 	  	email: params[:stripeEmail],
 	  	card: params[:stripeToken],
 	  	amount: product.price_in_cents,
-	  	description: charge.description,
-	  	currency: charge.currency,
+	  	description: product.description,
+	  	currency: "usd",
 	  	customer_id: customer.id,
 	  	product_id: product.id,
 	  	uuid: SecureRandom.uuid
