@@ -18,6 +18,18 @@ class ChargesController < ApplicationController
 	    :currency    => 'usd'
 	  )
 
+	  perchase = Perchase.create(
+	  	email: params[:stripeEmail],
+	  	card: params[:stripeToken],
+	  	amount: params[:amount],
+	  	description: charge.description,
+	  	currency: charge.currency,
+	  	customer_id: customer.id,
+	  	product_id: 1
+	  )
+
+	 redirect_to perchase
+
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message
 	  redirect_to new_charge_path

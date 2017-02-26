@@ -1,0 +1,2 @@
+class Perchase < ApplicationRecord
+end
