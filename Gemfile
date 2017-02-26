@@ -27,6 +27,8 @@ gem 'rails_12factor', group: :production
 # add stripe for processing payments
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
+#add letteropener for development
+gem 'letter_opener', group: :development
 
 gem 'dotenv-rails', groups: [:development, :test]
 # Use Puma as the app server
