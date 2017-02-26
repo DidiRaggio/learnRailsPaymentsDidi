@@ -18,17 +18,18 @@ class ChargesController < ApplicationController
 	    :currency    => 'usd'
 	  )
 
-	  perchase = Perchase.create(
+	  purchase = Purchase.create(
 	  	email: params[:stripeEmail],
 	  	card: params[:stripeToken],
 	  	amount: params[:amount],
 	  	description: charge.description,
 	  	currency: charge.currency,
 	  	customer_id: customer.id,
-	  	product_id: 1
+	  	product_id: 1,
+	  	uuid: SecureRandom.uuid
 	  )
 
-	 redirect_to perchase
+	 redirect_to purchase
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message
